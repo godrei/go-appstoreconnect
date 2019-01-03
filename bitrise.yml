@@ -1,0 +1,18 @@
+format_version: "6"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: other
+
+app:
+  envs:
+  # define these in your .bitrise.secrets.yml file
+  - ISSUER: $ISSUER
+  - PRIVATE_KEY_ID: $PRIVATE_KEY_ID
+  - PRIVATE_KEY_PATH: $PRIVATE_KEY_PATH
+
+workflows:
+  primary:
+    steps:
+    - script:
+        title: appstoreconnect client test
+        inputs:
+        - content: go run main.go
